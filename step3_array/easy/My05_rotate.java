@@ -37,8 +37,21 @@ public class My05_rotate {
         printArray(arr);
     }
 
+    // Optimal
+    static void rotateOne(int[] arr) {
+        int temp = arr[0];
+        for (int i = 0; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+
+        arr[arr.length - 1] = temp;
+
+        printArray(arr);
+    }
+
     public static void main(String[] args) {
         int[] arr = { 1, 2, 3, 4, 5, 6 };
-        rotate(arr, 1);
+        // rotate(arr, 1);
+        rotateOne(arr);
     }
 }
