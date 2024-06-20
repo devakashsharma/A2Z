@@ -9,6 +9,7 @@ public class My08_linearSearch {
     }
 
     // find x
+    // TC - O(N), SC - O(1)
     static boolean linearSearch(int[] arr, int x) {
         for (int i = 0; i < arr.length; i++) {
             if (x == arr[i])
