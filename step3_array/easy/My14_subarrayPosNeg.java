@@ -5,7 +5,6 @@ public class My14_subarrayPosNeg {
     // better
     static int betterArr(int[] arr, int k) {
         int n = arr.length;
-
         Map<Integer, Integer> sumMap = new HashMap<>();
         int max = 0;
         int sum = 0;
