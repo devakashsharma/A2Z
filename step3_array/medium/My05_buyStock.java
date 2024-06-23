@@ -1,5 +1,6 @@
 public class My05_buyStock {
     // Brute Force
+    // TC - O(N^2), SC - O(1)
     static int bruteStock(int[] arr) {
         int max = 0;
         for (int i = 0; i < arr.length - 1; i++) {
@@ -14,6 +15,7 @@ public class My05_buyStock {
     }
 
     // Optimal
+    // TC - O(N), SC - O(1)
     static int optimalStock(int[] arr) {
         int max = 0, min = Integer.MAX_VALUE;
 
