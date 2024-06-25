@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class My05_rearrange {
+public class My06_rearrange {
     // print array
     static void printArr(int[] arr) {
         System.out.print("Array: [ ");
