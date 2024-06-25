@@ -1,7 +1,3 @@
-
-// import java.util.Arrays;
-import java.util.Arrays;
-
 public class My07_permutation {
 
     // print array
@@ -62,7 +58,7 @@ public class My07_permutation {
 
             // Step 3: Reverse the elements after the break point:
             reverse(arr, index1 + 1, n - 1);
-            
+
             printArr(arr);
         }
 
