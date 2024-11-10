@@ -48,6 +48,9 @@ public class My01_binarySearch {
 
         System.out.println("Iterative Approach: " + ans);
         System.out.println("Recursive Approach: " + rec);
+
+        // The time complesity will be
+        // O(logN)
     }
 
 }
