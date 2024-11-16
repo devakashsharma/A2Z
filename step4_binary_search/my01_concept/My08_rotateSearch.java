@@ -15,7 +15,7 @@ public class My08_rotateSearch {
                     low = mid + 1;
                 }
             } else {
-                if (arr[high] <= x && x <= arr[mid]) {
+                if (arr[mid] < x && x <= arr[high]) {
                     low = mid + 1;
                 } else {
                     high = mid - 1;
