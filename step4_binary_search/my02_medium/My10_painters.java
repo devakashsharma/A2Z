@@ -19,7 +19,7 @@ public class My10_painters {
         return student > m ? false : true;
     }
 
-    // main methods - painter partition / split subrrays
+    // main methods - painter partition / split arrays
     static int paintersPartition(int [] arr, int m) {
         if (arr.length < m) {
             return -1;
