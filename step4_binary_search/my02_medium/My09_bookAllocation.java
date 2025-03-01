@@ -1,80 +1,56 @@
-// import java.util.Arrays;
-
 public class My09_bookAllocation {
 
     // methods to find the pages
-    // static boolean isItPossiblePage(int [] arr, int page) {
-    //     int countPage = 1;
+    static boolean isValid(int[] arr, int m, int maxAllowed) {
+        int student = 1, pages = 0;
 
-    //     return false;
-    // }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > maxAllowed) {
+                return false;
+            }
 
-    // static int allocationPages(int [] arr, int m) {
-    //     Arrays.sort(arr);
+            if (pages + arr[i] <= maxAllowed) {
+                pages += arr[i];
+            } else {
+                student++;
+                pages = arr[i];
+            }
+        }
 
-    //     int low = 0, high = 1;
+        return student > m ? false : true;
+    }
 
-    //     while (low <= high) {
-    //         int mid = (low + high) / 2;
-    //         if (isItPossiblePage(arr, mid)) {
-    //             low = mid + 1;
-    //         } else {
-    //             high = mid - 1;
-    //         }
-    //     }
-
-    //     return -1;
-    // }
-
-    public int allocateBooks(int[] arr, int m) {
-        // Edge case: If number of students is greater than number of books
-        if (m > arr.length) {
+    static int allocationPages(int [] arr, int m) {
+        if (arr.length < m) {
             return -1;
         }
 
-        int low = 0; // Minimum possible answer (maximum pages in a single book)
-        int high = 0; // Maximum possible answer (sum of all pages)
-        for (int pages : arr) {
-            low = Math.max(low, pages);
-            high += pages;
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
         }
 
-        int result = -1;
+        int ans = -1;
+        int low = 0, high = sum;
 
-        // Binary search to find the minimum possible maximum pages
-        while (low <= high) {
+        while(low <= high) {
             int mid = low + (high - low) / 2;
-            if (isPossible(arr, m, mid)) {
-                result = mid;
-                high = mid - 1; // Try to find a smaller maximum
+
+            if (isValid(arr, m, mid)) {
+                ans = mid;
+                high = mid - 1;
             } else {
-                low = mid + 1; // Increase the maximum
+                low = mid + 1;
             }
         }
 
-        return result;
-    }
-
-    // Helper function to check if it's possible to allocate books with a given maximum
-    private boolean isPossible(int[] arr, int m, int maxPages) {
-        int students = 1;
-        int currentSum = 0;
-
-        for (int pages : arr) {
-            currentSum += pages;
-            if (currentSum > maxPages) {
-                students++;
-                currentSum = pages;
-            }
-        }
-
-        return students <= m;
-    }
+        return ans;
+    }    
 
     public static void main(String[] args) {
-        My09_bookAllocation bookAllocation = new My09_bookAllocation();
-        int[] arr = {12, 34, 67, 90};
+        // int[] arr = {12, 34, 67, 90};
+        int[] arr = {2, 1, 3, 4};
         int m = 2;
-        System.out.println(bookAllocation.allocateBooks(arr, m));
+        System.out.println(allocationPages(arr, m));
     }
 }
